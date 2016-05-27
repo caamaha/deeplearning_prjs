@@ -1,0 +1,13 @@
+net: "models/mnist_cae/train_cae1.prototxt"
+base_lr: 0.00001
+lr_policy: "step"
+gamma: 0.5
+stepsize: 10000
+display: 20
+max_iter: 30000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 0
+snapshot_prefix: "output/mnist_cae/cache/snapshot_"
+#debug_info: true
+

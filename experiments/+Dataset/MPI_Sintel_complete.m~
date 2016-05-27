@@ -1,0 +1,35 @@
+function dataset = MPI_Sintel_complete(dataset)
+
+cache_file = fullfile(pwd, 'output', 'cache', 'imdb.mat');
+
+try
+    load(cache_file);
+catch
+    dataset.imdb = {};
+    dataset.imdb = scan_images(dataset.imdb, 'datasets/MPI-Sintel-complete/training/albedo');
+    
+    mkdir_if_missing(fullfile(pwd, 'output', 'cache'));
+end
+
+end
+
+function imdb = scan_folders(imdb, img_path)
+% imdb = scan_folders(imdb, img_path)
+%  Scan images from all sub directory under img_path and write their path
+%  into imdb.
+
+
+
+end
+
+function imdb = scan_images(imdb, img_path)
+% imdb = scan_image(imdb, img_path)
+%  Scan images from img_path and write their path into imdb.
+
+imgs = dir(img_path);
+
+for k = 3 : length(imgs)
+    imdb.images_path{end+1} = [img_path, '/', imgs(k).name];
+end
+
+end
